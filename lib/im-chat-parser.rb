@@ -1,8 +1,9 @@
-require './im-chat-parser/parser'
+require 'im-chat-parser/parser'
 
-class ImChatParser
+module ImChatParser
 
   def self.load(file_path)
+    
     file = File.new(file_path, 'r')
 
     Parser.new(file)

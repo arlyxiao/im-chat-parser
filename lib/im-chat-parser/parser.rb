@@ -1,5 +1,5 @@
-require './im-chat-parser/line'
-require './im-chat-parser/user'
+require 'im-chat-parser/line'
+require 'im-chat-parser/user'
 
 
 module ImChatParser
