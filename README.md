@@ -10,17 +10,25 @@ Add this line to your application's Gemfile:
 gem 'im-chat-parser'
 ```
 
-And then execute:
 
-    $ bundle
 
-Or install it yourself as:
-
-    $ gem install im-chat-parser
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+require 'im_chat_parser'
+
+chat = ImChatParser.load('./test.text')
+
+chat.lines.length
+
+lines = chat.lines
+users = chat.users
+
+
+```
+
 
 ## Contributing
 
