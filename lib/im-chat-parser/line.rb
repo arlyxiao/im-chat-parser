@@ -1,6 +1,10 @@
-class Line
+module ImChatParser
+  
+  class Line
 
-  attr_accessor :text, :time, :user, :name
+    attr_accessor :text, :time, :user, :name
 
+
+  end
 
 end
