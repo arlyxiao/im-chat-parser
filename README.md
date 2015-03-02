@@ -23,7 +23,15 @@ chat = ImChatParser.load('./test.text')
 
 chat.lines.length
 
+# Get all chat lines
 lines = chat.lines
+
+# Get each chat line user
+user = chat.lines[0]
+user.names
+user.qq_num
+
+# Get all chat users
 users = chat.users
 
 
