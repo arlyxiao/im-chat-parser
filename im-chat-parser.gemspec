@@ -5,7 +5,7 @@ require 'im-chat-parser/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "im-chat-parser"
-  spec.version       = Im::Chat::Parser::VERSION
+  spec.version       = ImChatParser::VERSION
   spec.authors       = ["arlyxiao"]
   spec.email         = ["kingla_pei@163.com"]
   spec.summary       = %q{TODO: Parse QQ/Webchat chat logs.}
