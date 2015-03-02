@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'im/chat/parser/version'
+require 'im-chat-parser/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "im-chat-parser"
   spec.version       = Im::Chat::Parser::VERSION
   spec.authors       = ["arlyxiao"]
   spec.email         = ["kingla_pei@163.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{TODO: Parse QQ/Webchat chat logs.}
+  spec.description   = %q{TODO: Parse QQ/Webchat chat logs.}
+  spec.homepage      = "https://github.com/arlyxiao/im-chat-parser"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

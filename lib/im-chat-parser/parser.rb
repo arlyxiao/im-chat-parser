@@ -1,19 +1,18 @@
-require './chat'
-require './line'
-require './user'
+require './im-chat-parser/line'
+require './im-chat-parser/user'
+
 
 
 class Parser
 
-  attr_accessor :text, :time, :user, :name
+  attr_accessor :text, :time, :user, :name, :lines, :users
 
   def initialize(file)
 
     data_lines = build_data_lines(file)
 
-    # p data
+    # p data_lines
 
-    
     build_chat(data_lines)
   end
 
@@ -22,7 +21,6 @@ class Parser
     pattern = /[\s+【\u4E00-\u9FA5\w\d+】\u4E00-\u9FA5(\d+)\<w+([-+.]w+)*@w+([-.]w+)*.w+([-.]w+)*\>]+[\s]+[\d{1,}:\d{1,}:\d{1,}]{1,}$/
     data = {}
 
-    file = File.new("test.txt", "r")
     while (line = file.gets)
       line = line.strip
       # next if line.empty?
@@ -95,10 +93,10 @@ class Parser
       lines << line
     end
 
-    Chat.lines = lines
-    Chat.users = users
+    # p lines
 
-    Chat
+    @users = users
+    @lines = lines
   end
 
 

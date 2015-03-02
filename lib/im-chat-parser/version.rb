@@ -1,0 +1,3 @@
+module ImChatParser
+  VERSION = "0.0.1"
+end
