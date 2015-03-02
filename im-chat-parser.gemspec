@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ImChatParser::VERSION
   spec.authors       = ["arlyxiao"]
   spec.email         = ["kingla_pei@163.com"]
-  spec.summary       = %q{TODO: Parse QQ/Webchat chat logs.}
-  spec.description   = %q{TODO: Parse QQ/Webchat chat logs.}
+  spec.summary       = %q{Parse QQ/Webchat chat logs.}
+  spec.description   = %q{Parse QQ/Webchat chat logs.}
   spec.homepage      = "https://github.com/arlyxiao/im-chat-parser"
   spec.license       = "MIT"
 
