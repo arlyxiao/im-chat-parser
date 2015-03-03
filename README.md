@@ -17,7 +17,7 @@ gem 'im-chat-parser'
 
 ```ruby
 
-require 'im_chat_parser'
+require 'im-chat-parser'
 
 chat = ImChatParser.load('文本文件绝对路径')
 
