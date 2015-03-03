@@ -19,7 +19,7 @@ gem 'im-chat-parser'
 
 require 'im_chat_parser'
 
-chat = ImChatParser.load('./test.text')
+chat = ImChatParser.load('文本文件绝对路径')
 
 chat.lines.length
 
