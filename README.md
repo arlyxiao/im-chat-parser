@@ -1,6 +1,6 @@
-# Im::Chat::Parser
+# ImChatParser
 
-TODO: Write a gem description
+需求来源: https://github.com/mindpin/chatflow/issues/14
 
 ## Installation
 
