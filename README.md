@@ -33,7 +33,8 @@ user.qq_num
 
 # Get all chat users
 users = chat.users
-
+users[0].qq_num
+users[0].names
 
 ```
 

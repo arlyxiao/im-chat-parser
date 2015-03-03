@@ -96,7 +96,7 @@ module ImChatParser
 
       # p lines
 
-      @users = users
+      @users = users.values
       @lines = lines
     end
 
