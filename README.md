@@ -1,6 +1,10 @@
 # ImChatParser
 
-需求来源: https://github.com/mindpin/chatflow/issues/14
+## 需求来源
+1. https://github.com/mindpin/chatflow/issues/14
+2. https://github.com/mindpin/chatflow/issues/15
+3. https://github.com/mindpin/chatflow/issues/16
+
 
 ## Installation
 
@@ -19,7 +23,9 @@ gem 'im-chat-parser'
 
 require 'im-chat-parser'
 
-chat = ImChatParser.load('文本文件绝对路径')
+# single: 表示 QQ 单人对话
+# multiple: 表示 QQ 多人群对话
+chat = ImChatParser.load('文本文件绝对路径', 'single')
 
 chat.lines.length
 

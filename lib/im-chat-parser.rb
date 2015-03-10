@@ -1,12 +1,19 @@
-require 'im-chat-parser/parser'
+require 'im-chat-parser/single_parser'
+require 'im-chat-parser/multiple_parser'
 
 module ImChatParser
 
-  def self.load(file_path)
+  def self.load(file_path, type)
     
     file = File.new(file_path, 'r')
 
-    Parser.new(file)
+    case type
+    when 'single'
+      SingleParser.new(file)
+    else
+      MultipleParser.new(file)
+    end
+    
   end
 
 end

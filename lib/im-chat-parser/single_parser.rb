@@ -4,12 +4,11 @@ require 'im-chat-parser/user'
 
 module ImChatParser
 
-  class Parser
+  class SingleParser
 
     attr_accessor :text, :time, :user, :name, :lines, :users
 
     def initialize(file)
-
       data_lines = build_data_lines(file)
 
       # p data_lines
