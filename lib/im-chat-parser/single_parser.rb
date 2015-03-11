@@ -52,50 +52,29 @@ module ImChatParser
 
         line.text = item[1].reject { |c| c.empty? }.join('\n')
         line.time = item[0][-8..-1]
-
-        email_pattern = /[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+/
-        qq_pattern = /[1-9][0-9]{4,}/
-        user_string = item[0][0..-9]
-
-        email = user_string.match(email_pattern).to_s
-        qq = user_string.match(qq_pattern).to_s
-
-        # name = user_string.gsub(/[#{email}<>]/, '').gsub(/\([#{qq}\)]/, '').strip
+        name = item[0][0..-9].strip
 
 
-        if email.empty?
-          qq_num = qq
-          # name = user_string.strip.gsub(/[\(#{qq}\)]?/, '')
-          name = user_string.split(qq)[0][0..-2]
-
-        elsif qq.empty?
-          qq_num = email
-          name = user_string.gsub(/[#{email}<>]/, '').strip
-        end
-
-        # p name
-        # p user_string
-        # p '==='
-        # user.name = name
-
-        if users.key?(qq_num)
-          user = users[qq_num]
+        if users.key?(name)
+          user = users[name]
           user.names << name
           user.names = user.names.uniq
         else
-          user = User.new(qq_num, name)
-          users[qq_num] = user
+          user = User.new(nil, name)
+          users[name] = user
         end
-        
 
+        # user = User.new(nil, name)        
         line.user = user
+
+
 
         lines << line
       end
 
       # p lines
 
-      @users = users.values
+      @users = lines.map {|line| line.user }.uniq
       @lines = lines
     end
 
