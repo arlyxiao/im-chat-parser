@@ -23,6 +23,10 @@ describe 'test parse' do
       expect(@chat.lines[1].user.qq_num).to eq('21929307')
     end
 
+    it 'line -> user -> qq_num' do
+      expect(@chat.lines[2].user.qq_num).to eq('1159602464')
+    end
+
     it 'line -> user -> names' do
       expect(@chat.lines[1].user.names).to eq(['李飞21', '【br】李飞'])
     end
@@ -59,26 +63,26 @@ describe 'test parse' do
   end
 
 
-  describe 'single' do
+  describe 'single2' do
     before {
-      @chat = ImChatParser.load(@path + "/multiple2.text")
+      @chat = ImChatParser.load(@path + "/single2.text")
     }
 
     it 'lines' do
-      @chat.lines.each do |line|
-        p line
-        p '===='
-      end
-      # expect(@chat.lines.length).to eq(6)
+      # @chat.lines.each do |line|
+      #   p line
+      #   p '===='
+      # end
+      expect(@chat.lines.length).to eq(8)
     end
 
-    # it 'users' do
-    #   expect(@chat.users.length).to eq(5)
-    # end
+    it 'users' do
+      expect(@chat.users.length).to eq(2)
+    end
 
-    # it 'line -> user -> qq_num' do
-    #   expect(@chat.lines[1].user.qq_num).to eq('108198236')
-    # end
+    it 'line -> user -> names' do
+      expect(@chat.lines[1].user.names).to eq(['负伤de骑士'])
+    end
 
 
   end
