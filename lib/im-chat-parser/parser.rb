@@ -24,7 +24,7 @@ module ImChatParser
         items = match_str(str)
 
         if items.nil?
-          @line.text = str
+          @line.text = @line.text.nil?? str: @line.text + "\n" + str
           @lines << @line
         else
           @line = Line.new
@@ -37,6 +37,7 @@ module ImChatParser
       end
       file.close
 
+      @lines = @lines.uniq
       @users = @users.values
 
     end
@@ -47,7 +48,7 @@ module ImChatParser
       def match_str(str)
         # pattern = /[\s+【\u4E00-\u9FA5\w\d+】\u4E00-\u9FA5(\d+)\<w+([-+.]w+)*@w+([-.]w+)*.w+([-.]w+)*\>]+[\s]+[\d{1,}:\d{1,}:\d{1,}]{1,}$/
         time_pattern = '[\d{1,}:\d{1,}:\d{1,}]{1,}'
-        email_pattern = '\w+?@\w+?\x2E.+'
+        email_pattern = '[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}'
         multiple_pattern = /^((?<name>.*)\((?<qq_num>\d+)\)|(?<name>.*)\<(?<qq_num>#{email_pattern})\>)\s+(?<time>#{time_pattern})$/
         single_pattern = /^(?<name>.*)\s+(?<time>#{time_pattern})$/
 
@@ -60,9 +61,9 @@ module ImChatParser
         name, qq_num, time = nil, nil, nil
         
         if items.length == 2
-          name, time = items[0].strip, items[1].strip
+          name, @line.time = items[0].strip, items[1].strip
         else
-          name, qq_num, time = items[0].strip, items[1].strip, items[2].strip
+          name, qq_num, @line.time = items[0].strip, items[1].strip, items[2].strip
         end
 
         val = qq_num.nil?? name: qq_num
