@@ -32,6 +32,10 @@ describe 'test parse' do
     end
 
     it 'line -> user -> names' do
+      expect(@chat.lines[0].user.names).to eq([''])
+    end
+
+    it 'line -> user -> names' do
       expect(@chat.lines.last.user.names).to eq(['李飞21', '【br】李飞'])
     end
 
@@ -144,7 +148,6 @@ describe 'test parse' do
     it 'line -> user -> names' do
       expect(@chat.lines[1].user.names).to eq(['负伤de骑士'])
     end
-
 
   end
 

@@ -89,7 +89,7 @@ module ImChatParser
         end
           
         @users[val].names << name
-        @users[val].names = @users[val].names.uniq
+        @users[val].names = @users[val].names.uniq.reject { |c| c.empty? }
         @users[val]
       end
 
