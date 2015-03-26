@@ -38,7 +38,7 @@ module ImChatParser
       file.close
 
       @lines = @lines.uniq
-      @users = @users.values
+      @users = @users.values.uniq
 
     end
 
@@ -56,6 +56,10 @@ module ImChatParser
 
         # 多人群聊天记录
         multiple_pattern = /^((?<name>.*)\((?<qq_num>\d+)\)|(?<name>.*)\<(?<qq_num>#{email_pattern})\>)\s+(?<time>#{time_pattern})$/
+
+
+        # 多人群聊天历史记录
+        multiple_history_pattern = /^((?<name>.*)\((?<qq_num>\d+)\)|(?<name>.*)\<(?<qq_num>#{email_pattern})\>)\s+(?<time>#{date_time_pattern})$/
         
         # 单人聊天记录
         single_pattern = /^(?<name>.*)\s+(?<time>#{time_pattern})$/
@@ -63,8 +67,8 @@ module ImChatParser
         # 单人聊天历史记录
         single_history_pattern = /^(?<name>.*)\s+(?<time>#{date_time_pattern})$/
 
-        last_char = str[0..-9].strip[-1]
-        return multiple_pattern.match(str) if ['>', ')'].include? last_char
+        return multiple_pattern.match(str) if ['>', ')'].include? str.gsub(/#{time_pattern}$/, '').strip[-1]
+        return multiple_history_pattern.match(str) if ['>', ')'].include? str.gsub(/#{date_time_pattern}$/, '').strip[-1]
         single_history_pattern.match(str).nil?? single_pattern.match(str): single_history_pattern.match(str)
       end
 

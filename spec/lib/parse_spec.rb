@@ -39,6 +39,67 @@ describe 'test parse' do
 
 
 
+  describe 'multiple2' do
+    before {
+      @chat = ImChatParser.load(@path + "/multiple2.text")
+    }
+
+    it 'lines' do
+      # @chat.lines.each do |line|
+      #   p line
+      #   p '===='
+      # end
+      expect(@chat.lines.length).to eq(5)
+    end
+
+    it 'users' do
+      expect(@chat.users.length).to eq(5)
+
+      # @chat.users.each do |user|
+      #   p user
+      #   p '===='
+      # end
+    end
+
+    it 'line -> user -> names' do
+      expect(@chat.lines[1].user.names).to eq(['【话唠】′水月。'])
+    end
+
+
+  end
+
+
+  describe 'multiple3' do
+    before {
+      @chat = ImChatParser.load(@path + "/multiple3.text")
+    }
+
+    it 'lines' do
+      # @chat.lines.each do |line|
+      #   p line
+      #   p '===='
+      # end
+      expect(@chat.lines.length).to eq(3)
+    end
+
+    it 'users' do
+      expect(@chat.users.length).to eq(2)
+
+      # @chat.users.each do |user|
+      #   p user
+      #   p '===='
+      # end
+    end
+
+    it 'line -> user -> names' do
+      expect(@chat.lines[1].user.names).to eq(['【活跃】殇康', '殇康2'])
+    end
+
+
+  end
+
+
+
   describe 'single' do
     before {
       @chat = ImChatParser.load(@path + "/single.text")
@@ -82,6 +143,20 @@ describe 'test parse' do
 
     it 'line -> user -> names' do
       expect(@chat.lines[1].user.names).to eq(['负伤de骑士'])
+    end
+
+
+  end
+
+
+
+  describe 'error' do
+    before {
+      # @chat = ImChatParser.load(@path + "/error.text")
+    }
+
+    it 'lines' do
+      # expect(@chat.lines.length).to eq(0)
     end
 
 
