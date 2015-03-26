@@ -25,7 +25,7 @@ require 'im-chat-parser'
 
 # single: 表示 QQ 单人对话
 # multiple: 表示 QQ 多人群对话
-chat = ImChatParser.load('文本文件绝对路径', 'single')
+chat = ImChatParser.load('文本文件绝对路径')
 
 chat.lines.length
 
