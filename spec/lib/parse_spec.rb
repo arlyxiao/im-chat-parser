@@ -152,6 +152,30 @@ describe 'test parse' do
   end
 
 
+  describe 'single3' do
+    before {
+      @chat = ImChatParser.load(@path + "/single3.text")
+    }
+
+    it 'lines' do
+      expect(@chat.lines.length).to eq(3)
+    end
+
+    it 'users' do
+      expect(@chat.users.length).to eq(2)
+    end
+
+    it 'line -> user -> names' do
+      expect(@chat.lines[1].user.names).to eq(['洋气书生'])
+    end
+
+    it 'line -> user -> time' do
+      expect(@chat.lines[2].time).to eq('2015/3/23 星期一 16:05:58')
+    end
+
+  end
+
+
 
   describe 'error' do
     before {
